@@ -73,7 +73,7 @@ export class LancamentoService {
 
 
     return this.http.post(this.lancamentosUrl,
-        JSON.stringify(lancamento), )
+      Lancamento.toJson(lancamento), )
       .toPromise()
       .then(response => response.json());
   }
@@ -82,12 +82,12 @@ export class LancamentoService {
 
 
     return this.http.put(`${this.lancamentosUrl}/${lancamento.codigo}`,
-        JSON.stringify(lancamento), )
+    Lancamento.toJson(lancamento), )
       .toPromise()
       .then(response => {
         const lancamentoAlterado = response.json() as Lancamento;
 
-       // this.converterStringsParaDatas([lancamentoAlterado]);
+        this.converterStringsParaDatas([lancamentoAlterado]);
 
         return lancamentoAlterado;
       });
@@ -100,7 +100,7 @@ export class LancamentoService {
       .then(response => {
         const lancamento = response.json() as Lancamento;
 
-        // this.converterStringsParaDatas([lancamento]);
+        this.converterStringsParaDatas([lancamento]);
 
         return lancamento;
       });
@@ -108,10 +108,10 @@ export class LancamentoService {
 
   private converterStringsParaDatas(lancamentos: Lancamento[]) {
     for (const lancamento of lancamentos) {
-     // lancamento.dataVencimento = moment(lancamento.dataVencimento,'YYYY-MM-DD').toDate();
+      lancamento.dataVencimento = moment(lancamento.dataVencimento, 'YYYY-MM-DD').toDate();
 
       if (lancamento.dataPagamento) {
-      //  lancamento.dataPagamento = moment(lancamento.dataPagamento, 'YYYY-MM-DD').toDate();
+       lancamento.dataPagamento = moment(lancamento.dataPagamento, 'YYYY-MM-DD').toDate();
       }
     }
   }

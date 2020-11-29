@@ -78,7 +78,7 @@ export class LancamentoCadastroComponent implements OnInit {
   }
 
   adicionarLancamento(form: FormControl) {
-     this.formatarData();
+   //  this.formatarData();
 
     this.lancamentoService.adicionar(this.lancamento)
     .then(lancamentoAdicionado => {

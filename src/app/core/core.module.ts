@@ -1,6 +1,6 @@
 import { Title } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule  } from '@angular/common';
 
 import { ConfirmationService } from 'primeng/components/common/api';
 import { ConfirmDialogModule } from 'primeng/components/confirmdialog/confirmdialog';
@@ -16,6 +16,8 @@ import { CategoriaService } from 'app/categorias/categoria.service';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
 import { AuthService } from './../seguranca/auth.service';
 import { NaoAutorizadoComponent } from './nao-autorizado.component';
+
+
 
 @NgModule({
   imports: [
